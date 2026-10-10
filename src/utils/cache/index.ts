@@ -5,31 +5,6 @@ import { themeConfig } from '@/store/theme/config'
 
 // 缓存
 class Cache {
-	getToken = (): string => {
-		return Storage.getItem(CacheKey.TokenKey) || ''
-	}
-
-	setToken = (value: string | null) => {
-		if (value) {
-			Storage.setItem(CacheKey.TokenKey, value)
-		} else {
-			Storage.removeItem(CacheKey.TokenKey)
-		}
-	}
-
-	getRefreshToken = (): string => {
-		return Storage.getItem(CacheKey.RefreshTokenKey) || ''
-	}
-
-	setRefreshToken = (value: string | null) => {
-		if (value) {
-			Storage.setItem(CacheKey.RefreshTokenKey, value)
-		} else {
-			Storage.removeItem(CacheKey.RefreshTokenKey)
-		}
-	}
-
-
 	getSidebarOpened = (): boolean => {
 		return Storage.getItem(CacheKey.SidebarOpenedKey) || false
 	}
@@ -64,14 +39,6 @@ class Cache {
 
 	removeTheme = () => {
 		SessionStorage.removeItem(CacheKey.ThemeKey)
-	}
-
-	getRequestObj = (): any => {
-		return SessionStorage.getItem(CacheKey.RequestObjKey) || ''
-	}
-
-	setRequestObj = (value: any) => {
-		SessionStorage.setItem(CacheKey.RequestObjKey, value)
 	}
 }
 

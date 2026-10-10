@@ -1,7 +1,6 @@
 import { ElLoading, ElMessage } from 'element-plus'
 import { saveAs } from 'file-saver'
 import service from '@/utils/request'
-import { blobValidate } from '@/utils/polymer'
 import errorCode from '@/utils/errorCode'
 import type { AxiosResponse } from 'axios'
 
@@ -191,4 +190,12 @@ export async function exportTemplate(
     } catch (err: any) {
         await handleDownloadError(err)
     }
+}
+
+/**
+ * 验证是否为 blob 格式
+ * @param data Blob 对象
+ */
+export function blobValidate(data: Blob): boolean {
+    return data.type !== 'application/json'
 }
